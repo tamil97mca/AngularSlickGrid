@@ -1,0 +1,45 @@
+<mat-toolbar>
+  Settings
+</mat-toolbar>
+
+
+<mat-tab-group>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon"><i class="fa fa-paint-brush" aria-hidden="true"></i></mat-icon>
+      Theme
+    </ng-template>
+    Content 1
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon"><i class="fa fa-font" aria-hidden="true"></i></mat-icon>
+      Typography
+    </ng-template>
+
+    <br>
+    <div>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Text Align</mat-label>
+        <mat-select [(ngModel)]="selectedOption" (ngModelChange)="myFunction()">
+          <mat-option value="left">Left</mat-option>
+          <mat-option value="right">Right</mat-option>
+          <mat-option value="center">Center</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon"><i class="fa fa-users" aria-hidden="true"></i></mat-icon>
+      User Detail
+    </ng-template>
+
+    Content 3
+  </mat-tab>
+</mat-tab-group>

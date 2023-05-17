@@ -1,0 +1,191 @@
+<mat-toolbar   class="sticky-toolbar">
+  <button (click)="backButtonClick()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+</button>
+  <span>Employee Management System</span>
+</mat-toolbar>
+
+<mat-card class="card">
+  <mat-card-header>
+     <mat-card-title>Customer Entry</mat-card-title>
+     <mat-card-subtitle>Enter customer details</mat-card-subtitle>
+     <span class="example-spacer"></span>
+     <button class="btn btn-primary">
+     <span style="cursor: pointer;" type="submit" (click)="submit()">
+     <i class="fa fa-floppy-o" aria-hidden="true"></i></span>
+     </button>
+  </mat-card-header>
+  <mat-card-content>
+
+    <div class="justify-content-md-around">
+      <form [formGroup]="formGroup">
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Name</label>
+              <input type="text" formControlName="name" class="form-control" id="exampleInputEmail1">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Age</label>
+              <input type="number" formControlName="age" class="form-control" id="exampleInputEmail1">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Gender</label>
+              <input type="text" formControlName="gender" class="form-control" id="exampleInputEmail1">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Company</label>
+              <input type="text" formControlName="company" class="form-control" id="exampleInputEmail1">
+            </div>
+          </div>
+        </div>
+    
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email</label>
+              <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Phone</label>
+              <input type="tel" formControlName="phone" class="form-control" id="exampleInputEmail1">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Address</label>
+              <textarea type="text" formControlName="address" class="form-control"
+                id="exampleFormControlTextarea1"></textarea>
+              <!-- <input type="tel" class="form-control" id="exampleInputEmail1"> -->
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Date of Birth</label>
+              <input type="date" formControlName="dob" class="form-control" id="exampleInputEmail1">
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <!-- <label for="exampleInputEmail1">Avatar</label>
+              <input type="file" formControlName="avatar" (change)="onSelect($event)"> -->
+              <div><label for="exampleInputEmail1">Avatar</label></div>
+              <label for="fileInput" class="custom-file-upload"><i class="fa fa-cloud-upload"></i> Choose File</label>
+              <input id="fileInput" type="file" accept="image/*" multiple formControlName="avatar" (change)="onSelect($event)"/>
+              <!-- <div><img src="data:image/png;base64,{{this.params['selectedData']._attachments.image.data}}" width="150px" alt="Product Image" height="150px" /></div> -->
+              <p id="selectedFile">No file selected</p>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group">
+              <div id="previewContainer">
+                <div><label>Preview:</label></div>
+                <img id="preview" src="#" alt="Preview">
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </div>
+
+     <!-- <form [formGroup]="formGroup">
+        <div>
+        
+          <div class="container text-center">
+            <div class="row row-cols-4">
+              <div class="col">
+        
+                <mat-form-field appearance="fill">
+                  <mat-label>Name</mat-label>
+                  <input type="text" formControlName="name" matInput>
+                </mat-form-field>
+        
+              </div>
+              <div class="col">
+        
+                <mat-form-field appearance="fill">
+                  <mat-label>Age</mat-label>
+                  <input matInput type="number" formControlName="age" minlength="1" maxlength="3">
+                </mat-form-field>
+        
+              </div>
+        
+              <div class="col">
+        
+                <mat-form-field appearance="fill">
+                  <mat-label>Gender</mat-label>
+                  <mat-select formControlName="gender">
+                    <mat-option value="male">Male</mat-option>
+                    <mat-option value="female">Female</mat-option>
+                  </mat-select>
+                </mat-form-field>
+        
+              </div>
+        
+              <div class="col">
+        
+                <mat-form-field appearance="fill">
+                  <mat-label>Company</mat-label>
+                  <input type="text" formControlName="company" matInput>
+                </mat-form-field>
+        
+              </div>
+        
+            </div>
+        
+            <div class="row row-cols-4">
+              <div class="col">
+        
+                <mat-form-field appearance="fill">
+                  <mat-label>Enter your email</mat-label>
+                  <input type="email" formControlName="email" matInput placeholder="pat@example.com" [formControl]="email"
+                    required>
+                  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+        
+              </div>
+        
+              <div class="col">
+        
+                <mat-form-field appearance="fill">
+                  <mat-label>Phone</mat-label>
+                  <input matInput type="number | text" formControlName="phone" minlength="2" maxlength="18">
+                </mat-form-field>
+        
+              </div>
+        
+              <div class="col">
+        
+                <mat-form-field appearance="fill">
+                  <mat-label>Address</mat-label>
+                  <textarea type="text" formControlName="address" matInput></textarea>
+                </mat-form-field>
+        
+              </div>
+        
+            </div>
+        
+          </div>
+        
+        </div>
+        
+        </form> -->
+  </mat-card-content>
+</mat-card>

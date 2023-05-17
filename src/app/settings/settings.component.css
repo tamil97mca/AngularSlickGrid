@@ -1,0 +1,11 @@
+.example-tab-icon {
+  margin-right: 8px;
+}
+
+mat-tab-group {
+  padding: 0 14px !important;
+}
+
+i {
+  color: #2196F3;;
+}

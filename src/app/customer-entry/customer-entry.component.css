@@ -1,0 +1,60 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.example-container mat-form-field + mat-form-field {
+  margin-left: 8px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+i {
+  /* color: #3f51b5; */
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.card {
+  border: 0.5px solid gainsboro;
+  margin: 2%;
+  width: 96%;
+  height: fit-content;
+}
+label {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* File upload button CSS */
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.custom-file-upload:hover {
+  background-color: #0056b3;
+}
+
+.custom-file-upload i {
+  margin-right: 10px;
+}
+
+/* Hide default file input */
+input[type="file"] {
+  display: none;
+}
+
+#preview {
+  max-width: 100%;
+  max-height: 150px;
+}
