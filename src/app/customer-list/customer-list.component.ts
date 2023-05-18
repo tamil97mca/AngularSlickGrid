@@ -1,7 +1,6 @@
-import { ChangeDetectorRef, Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AngularGridInstance, Column, Editors, FieldType, Filters, Formatters, GridOption, OnEventArgs, FilterService, SlickGrid, FormatterResultObject } from 'angular-slickgrid';
-import { environment } from 'src/environments/environment';
+import { Column, Editors, FieldType, Filters, Formatters, GridOption, OnEventArgs } from 'angular-slickgrid';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2'
 import { RestService } from '../rest.service';
@@ -25,20 +24,12 @@ export class CustomerListComponent implements OnInit {
   selected = 'option2';
   isLazyLoading: boolean = true;
 
-  constructor(public http: HttpClient, private rest: RestService,private changeRef: ChangeDetectorRef,
-    private renderer: Renderer2, private router: Router, public activatRoute: ActivatedRoute) {
+  constructor(public http: HttpClient, private rest: RestService,
+    private router: Router, public activatRoute: ActivatedRoute) {
 
     if (this.angularGrid?.paginationService) {
       this.angularGrid.paginationService.changeItemPerPage(this.angularGrid.paginationService.itemsPerPage);
     }
-
-    // this.renderer.listen('window', 'change', () => {
-
-    //   $(".slick-cell.active").on("change", () => {
-    //     alert("The text has been changed.");
-    //   });
-
-    // })
 
     this.prepareGrid();
 
@@ -457,7 +448,7 @@ export class CustomerListComponent implements OnInit {
       editable: true,
       enableTranslate: false,
       autoCommitEdit: true,
-      gridHeight: 400,
+      gridHeight: 380,
       gridWidth: 1285,
       rowHeight: 40,
       enablePagination: true,

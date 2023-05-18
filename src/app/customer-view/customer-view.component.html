@@ -180,9 +180,9 @@
 <!-- <div><img [src]="this.avatar" width="150px" alt="Product Image" height="150px" /></div> -->
 
 <mat-toolbar   class="sticky-toolbar">
-    <button (click)="backButtonClick()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <!-- <button (click)="backButtonClick()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
       <i class="fa fa-arrow-left" aria-hidden="true"></i>
-  </button>
+  </button> -->
     <span>Employee Management System</span>
   </mat-toolbar>
   
@@ -252,6 +252,14 @@
                         <div><img [src]="attachmentUrl" width="150px" alt="Product Image" height="150px" style="border-radius: 50%;"/></div>
                     </div>
                 </div>
+
+                <br>
+                <div class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <ngx-image-viewer [src]="images" alt="Product Image" class="ngx-container"></ngx-image-viewer>
+                    </div>
+                </div>
+
             </div>
         <!-- </div> -->
     </mat-card-content>

@@ -18,11 +18,14 @@ export class CustomerViewComponent {
 
   avatar: any;
   attachmentUrl:any;
+  // images: Array<string> = [];
+  images: Array<string> = ["https://preview.ibb.co/jrsA6R/img12.jpg", "https://preview.ibb.co/kPE1D6/clouds.jpg", "https://preview.ibb.co/mwsA6R/img7.jpg", "https://preview.ibb.co/kZGsLm/img8.jpg"];
 
   constructor(public fb : FormBuilder, public http : HttpClient,  public activatRoute: ActivatedRoute, private restService: RestService,
     private domSanitizer: DomSanitizer) { 
 
       this.attachmentUrl = "assets/img/user_icon.png";
+      // this.images.push("assets/img/user_icon.png")
 
     this.activatRoute.queryParams.subscribe(async (params) => {
 
@@ -38,11 +41,15 @@ export class CustomerViewComponent {
           const response:any = await this.http.get(a, { responseType: 'blob' }).toPromise();
 
           // Create a Blob from the response
-          const blob = new Blob([response], { type: 'image/png' });
+          if (response.size > 0) {
+            const blob = new Blob([response], { type: 'image/png' });
     
-          // Convert the Blob to a SafeUrl
-          this.attachmentUrl = this.domSanitizer.bypassSecurityTrustUrl(URL.createObjectURL(blob));
-          console.log(this.attachmentUrl);
+            // Convert the Blob to a SafeUrl          
+            this.images = [];
+            this.attachmentUrl = this.domSanitizer.bypassSecurityTrustUrl(URL.createObjectURL(blob));
+            console.log(this.attachmentUrl);
+            this.images.push(this.attachmentUrl);
+          }
         }
       })
 

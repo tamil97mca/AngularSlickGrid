@@ -1,17 +1,17 @@
 <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
 
-<mat-toolbar   class="sticky-toolbar">
-  <button (click)="backButtonClick()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <i class="fa fa-arrow-left" aria-hidden="true"></i>
-</button>
-  <span>Employee Management System</span>
+<mat-toolbar class="sticky-toolbar">
+    <!-- <button (click)="backButtonClick()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </button> -->
+    <span>Employee Management System</span>
 </mat-toolbar>
 
 <!-- <span *ngIf="isLoading">
   <mat-spinner style="margin:0 auto;"></mat-spinner>
 </span> -->
 
-  <!-- <span class="example-spacer"></span>
+<!-- <span class="example-spacer"></span>
 
   &nbsp; &nbsp;
   <span style="cursor: pointer;">
@@ -22,18 +22,18 @@
     <span style="cursor: pointer;">
     <i class="fa fa-trash" aria-hidden="true" (click)="bulkDelete()"></i></span> -->
 
-
 <!-- <button class="btn btn-default btn-sm" data-test="set-dynamic-sorting" (click)="setSortingDynamically()">
       Set Sorting Dynamically
   </button> -->
 
 <div class="card m-3">
-  <div class="card-body">
-    <h3 class="card-title">Employees List
-      <!-- Icon's Only -->
-      <!-- <span><i class="fa fa-arrows-alt" aria-hidden="true"></i></span> -->
+    <div class="card-body">
+        <h3 class="card-title">
+            Employees List
+            <!-- Icon's Only -->
+            <!-- <span><i class="fa fa-arrows-alt" aria-hidden="true"></i></span> -->
 
-      <!-- <span class="align-end">
+            <!-- <span class="align-end">
 
         <button type="button" class="btn btn-primary btn-sm position-relative">
           <i class="fa fa-bell" aria-hidden="true"></i>
@@ -60,33 +60,28 @@
           <i class="fa fa-trash" aria-hidden="true" (click)="bulkDelete()"></i></span>
       </span> -->
 
-      <span class="align-end">
-        &nbsp; &nbsp;
-        <button (click)="onToggleFilter()" type="button" class="btn btn-primary btn-sm">
-          <span style="cursor: pointer;" title="Row filter">
-            <i class="fa fa-filter" aria-hidden="true"></i></span>
-        </button>
-        &nbsp; &nbsp;
-        <button (click)="onRecordEdit()" type="button" class="btn btn-primary btn-sm">
-          <span style="cursor: pointer;"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-        </button>
-        &nbsp; &nbsp;
-        <button (click)="cloneButtonOnClick()" type="button" class="btn btn-primary btn-sm">
-          <span style="cursor: pointer;" title="Clone">
-            <i class="fa fa-clone" aria-hidden="true"></i>
-          </span>
-        </button>
-        &nbsp; &nbsp;
-        <button (click)="bulkDelete()" type="button" class="btn btn-primary btn-sm">
-          <span style="cursor: pointer;" title="Bulk delete">
-            <i class="fa fa-trash" aria-hidden="true"></i></span>
-        </button>
-      </span>
-    </h3>
+            <span class="align-end">
+                &nbsp; &nbsp;
+                <button (click)="onToggleFilter()" type="button" class="btn btn-primary btn-sm">
+                    <span style="cursor: pointer;" title="Row filter"> <i class="fa fa-filter" aria-hidden="true"></i></span>
+                </button>
+                &nbsp; &nbsp;
+                <button (click)="onRecordEdit()" type="button" class="btn btn-primary btn-sm">
+                    <span style="cursor: pointer;"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                </button>
+                &nbsp; &nbsp;
+                <button (click)="cloneButtonOnClick()" type="button" class="btn btn-primary btn-sm">
+                    <span style="cursor: pointer;" title="Clone">
+                        <i class="fa fa-clone" aria-hidden="true"></i>
+                    </span>
+                </button>
+                &nbsp; &nbsp;
+                <button (click)="bulkDelete()" type="button" class="btn btn-primary btn-sm">
+                    <span style="cursor: pointer;" title="Bulk delete"> <i class="fa fa-trash" aria-hidden="true"></i></span>
+                </button>
+            </span>
+        </h3>
 
-    <angular-slickgrid gridId="grid1" [columnDefinitions]="columnDefinitions" [gridOptions]="gridOptions"
-      [dataset]="dataset" (onAngularGridCreated)="angularGridReady($event)" (onCellChange)="onCellChanged($event)">
-    </angular-slickgrid>
-
-  </div>
+        <angular-slickgrid gridId="grid1" [columnDefinitions]="columnDefinitions" [gridOptions]="gridOptions" [dataset]="dataset" (onAngularGridCreated)="angularGridReady($event)" (onCellChange)="onCellChanged($event)"> </angular-slickgrid>
+    </div>
 </div>
